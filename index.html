@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF8">
+  <link href='ui_framework.css' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open Sans:300,400,700|Ubuntu+Mono:400' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="kuiView">
+    <div class="kuiViewContent kuiViewContent--constrainedWidth">
+      <div class=kuiViewContentItem>
+        <div class="kuiHeaderBar">
+          <div class="kuiHeaderBarSection">
+            <h1 class="kuiTitle">Kibana UI Framework Documents</h2>
+          </div>
+        </div>
+
+        <div class="kuiNotice">
+          <h2 class="kuiTitle kuiVerticalRhythm">
+            <span class="kuiIcon kuiIcon--warning fa-warning"></span>
+            <span>This archive is temporary.</span>
+          </h2>
+          <p class="kuiText kuiVerticalRhythm"></p>
+          <p class="kuiText kuiVerticalRhythm"></p>
+        </div>
+      </div>
+    </div>
+    <div class="kuiViewContent kuiViewContent--constrainedWidth">
+      <div class=kuiViewContentItem>
+        <div class="kuiHeaderBar kuiVerticalRhythm">
+          <div class="kuiHeaderBarSection">
+            <h2 class="kuiSubTitle">Archive</h2>
+          </div>
+        </div>
+
+        <div id="archiveLinks" class="kuiVerticalRhythm"></div>
+      </div>
+    </div>
+  </div>
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    const archiveLinks = $('#archiveLinks');
+    $.get('https://api.github.com/repos/sw-jung/kibana_ui_framework_doc/contents')
+    .then(function (contents) {
+      $('#archiveLinks').html(contents
+        .filter(function (content) {
+          return content.type === 'dir';
+        })
+        .map(function (dir) {
+          const name = dir.name;
+          return `<a href="./${name}" class="kuiButton kuiButton--secondary kuiButton--small">${name}</a>`;
+        })
+        .join(''));
+    });
+  </script>
+</body>
+
+</html>
