@@ -5,38 +5,41 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF8">
   <link href='ui_framework.css' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open Sans:300,400,700|Ubuntu+Mono:400' rel='stylesheet' type='text/css'>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="favicon.ico">
 </head>
 
 <body>
   <div class="kuiView">
     <div class="kuiViewContent kuiViewContent--constrainedWidth">
-      <div class=kuiViewContentItem>
-        <div class="kuiHeaderBar">
+      <div class="kuiViewContentItem">
+        <div class="kuiHeaderBar kuiVerticalRhythm">
           <div class="kuiHeaderBarSection">
             <h1 class="kuiTitle">Kibana UI Framework Documents</h2>
           </div>
         </div>
 
-        <div class="kuiNotice">
-          <h2 class="kuiTitle kuiVerticalRhythm">
-            <span class="kuiIcon kuiIcon--warning fa-warning"></span>
-            <span>This archive is temporary.</span>
-          </h2>
-          <p class="kuiText kuiVerticalRhythm"></p>
-          <p class="kuiText kuiVerticalRhythm"></p>
+        <div class="kuiInfoPanel kuiInfoPanel--warning kuiVerticalRhythm">
+          <div class=kuiInfoPanelHeader>
+            <span class="kuiInfoPanelHeader__icon kuiIcon kuiIcon--warning fa-warning"></span>
+            <span class=kuiInfoPanelHeader__title>WARNING</span>
+          </div>
+          <div class=kuiInfoPanelBody>
+            <div class=kuiInfoPanelBody__message>
+                This archive is for personal use temporarily.
+                I hope <a href="https://github.com/elastic/kibana/issues/9457">this issue</a> will be resolved quickly.
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="kuiViewContent kuiViewContent--constrainedWidth">
-      <div class=kuiViewContentItem>
+      <div class="kuiViewContentItem">
         <div class="kuiHeaderBar kuiVerticalRhythm">
           <div class="kuiHeaderBarSection">
             <h2 class="kuiSubTitle">Archive</h2>
           </div>
         </div>
-
         <div id="archiveLinks" class="kuiVerticalRhythm"></div>
       </div>
     </div>
@@ -58,7 +61,7 @@
           const name = dir.name;
           return `<a href="./${name}" class="kuiButton kuiButton--secondary kuiButton--small">${name}</a>`;
         })
-        .join(''));
+        .join('&nbsp;'));
     });
   </script>
 </body>
